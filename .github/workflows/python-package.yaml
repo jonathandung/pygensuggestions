@@ -1,0 +1,25 @@
+name: Python package
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6.0.2
+    - uses: actions/setup-python@v6.2.0
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        pip install -U pip
+        pip install -e .[dev]
+        pip check
+    - name: Lint with ruff
+      run: uv tool install ruff && uvx ruff check . --output-format=github
+    - name: Run mypy
+      run: mypy asyncutils
+    - name: Run stubtest
+      run: stubtest asyncutils --strict-type-check-only
