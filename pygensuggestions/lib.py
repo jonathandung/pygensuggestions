@@ -1,6 +1,11 @@
 __all__ = 'MAX_CANDIDATE_ITEMS', 'MAX_STRING_SIZE', 'lev_dist', 'sub_cost', 'suggest'
-MAX_STRING_SIZE, MAX_CANDIDATE_ITEMS = 40, 750
+MAX_STRING_SIZE = 40
+'''The maximum length of the target string, past which the function always returns `None`.'''
+MAX_CANDIDATE_ITEMS = 750
+'''The maximum number of candidate items, past which the function returns `None` indiscriminately.'''
 def lev_dist(s, t, n, /, _=__import__('sys').maxsize): # noqa: B008
+    '''Return `n` or the (weighted) Levenshtein distance between `s` and `t`, whichever is smaller.
+    `n` is required as in the C version, and allows early termination.'''
     i = j = 0
     x = y = None
     for x, y, i in zip(s, t, range(len(s))):
@@ -27,6 +32,7 @@ def lev_dist(s, t, n, /, _=__import__('sys').maxsize): # noqa: B008
         if m >= n: return n
     return r
 def sub_cost(s, t, /, a=65, z=90, d=32):
+    '''The cost to substitute `s` for `t`, considering case.'''
     if s == t: return 0
     if isinstance(s, str):
         if isinstance(t, str): return 1 if s.casefold() == t.casefold() else 2
@@ -36,12 +42,15 @@ def sub_cost(s, t, /, a=65, z=90, d=32):
     if a <= t <= z: t += d
     return 1 if s == t else 2
 def suggest(o, n, /):
+    '''The main feature of this library: given a list of candidate strings and a target string, return the closest match from the candidates, or `None` if there is no good match.'''
     b = x = len(n)
     if len(o) >= MAX_CANDIDATE_ITEMS or x > MAX_STRING_SIZE: return
     s = None
     for c in o:
         if c == n: continue
-        d = lev_dist(n, c, min((len(c)+x)//3+1, b-1))
+        m = min((len(c)+x)//3+1, b-1)
+        d = lev_dist(n, c, m)
+        if d == m: continue
         if d < b: s, b = c, d
     return s
 suggest.__text_signature__ = '(candidates, item, /)' # ty: ignore[unresolved-attribute]

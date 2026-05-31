@@ -1,5 +1,4 @@
-from pygensuggestions.lib import lev_dist, suggest
-import sys
+from pygensuggestions.lib import suggest
 def test_basic_suggestion(): assert suggest(['apple', 'apricot', 'banana', 'grape'], 'appple') == 'apple'
 def test_case_insensitive_suggestion(): assert suggest(['Python', 'Java', 'JavaScript', 'Ruby'], 'python') == 'Python'
 def test_empty_candidates(): assert suggest([], 'test') is None
@@ -24,11 +23,6 @@ def test_single_candidate():
     assert suggest(candidates, 'only_one') is None
     assert suggest(candidates, 'different') is candidates[0]
 def test_suggestion_with_unicode(): assert suggest(['café', 'cafe', 'coffee', 'tea'], 'cafe') in {'cafe', 'café'}
-def test_max_distance_bound():
-    candidates = ['short', 'thisisaverylongword', 'medium']
-    result = suggest(candidates, 'verydifferent')
-    assert result in candidates
-    assert lev_dist('verydifferent', result, sys.maxsize) < len('verydifferent')<<1
 def test_consecutive_calls():
     candidates = ['apple', 'apricot', 'avocado', 'banana']
     assert suggest(candidates, 'appple') == 'apple'
@@ -77,11 +71,6 @@ def test_single_candidate_bytes():
     candidates = [b'only_one']
     assert suggest(candidates, b'only_one') is None
     assert suggest(candidates, b'different') is candidates[0]
-def test_max_distance_bound_bytes():
-    candidates = [b'short', b'thisisaverylongword', b'medium']
-    result = suggest(candidates, b'verydifferent')
-    assert result in candidates
-    assert lev_dist(b'verydifferent', result, sys.maxsize) < len(b'verydifferent')<<1
 def test_consecutive_calls_bytes():
     candidates = [b'apple', b'apricot', b'avocado', b'banana']
     assert suggest(candidates, b'appple') == b'apple'
