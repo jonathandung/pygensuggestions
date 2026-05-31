@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "pygensuggestions"
-version = "1.1.0"
+version = "1.2.0"
 authors = [{name = "Jonathan Dung", email = "jonathandung@yahoo.com"}]
 maintainers = [{name = "Jonathan Dung", email = "jonathandung@yahoo.com"}]
 description = "Generate a suggestion deterministically based on mistyped input and possible targets."
@@ -19,7 +19,7 @@ Homepage = "https://github.com/jonathandung/pygensuggestions"
 Repository = "https://github.com/jonathandung/pygensuggestions.git"
 Issues = "https://github.com/jonathandung/pygensuggestions/issues"
 Download = "https://pypi.org/project/pygensuggestions/#files"
-"Release Notes" = "https://github.com/jonathandung/pygensuggestions/releases/tag/1.1.0"
+"Release Notes" = "https://github.com/jonathandung/pygensuggestions/releases/tag/1.2.0"
 
 [project.optional-dependencies]
 test = ["pytest==8.3.5", "pytest-cov==5.0.0", "pytest-sugar==1.1.1"]

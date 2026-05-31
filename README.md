@@ -7,8 +7,8 @@ A backport of the `_suggestions` module, native to CPython since 3.12, to other 
 ## Quickstart
 
 ```bash
-pip install pygensuggestions==1.1.0 # pip
-uv pip install pygensuggestions==1.1.0 # uv
+pip install pygensuggestions==1.2.0 # pip
+uv pip install pygensuggestions==1.2.0 # uv
 ```
 
 ## Usage
@@ -31,10 +31,10 @@ b'blue'
 ```console
 $ echo "thousand
 > hundred" > moreopts.txt
-$ pygensuggestions tousand million atousend @moreopts.txt -o res.out # read candidates from a file and print result to another
+$ pygensuggestions tousand million atousend @moreopts.txt --outfile res.out # read candidates from arguments and optionally a newline-delimited file
 $ echo $? # check exit code; no suggestion was generated successfully if equal to 1
 0
-$ cat res.out
+$ cat res.out # print the result
 thousand
 ```
 
