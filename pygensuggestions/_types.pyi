@@ -1,0 +1,6 @@
+from _collections_abc import Iterator
+from typing import TypeVar, Protocol
+_S_co = TypeVar('_S_co', str, bytes, covariant=True)
+class Candidates(Protocol[_S_co]):
+    def __len__(self) -> int: ...
+    def __iter__(self) -> Iterator[_S_co]: ...
