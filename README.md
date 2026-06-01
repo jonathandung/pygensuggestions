@@ -7,8 +7,22 @@ A backport of the `_suggestions` module, native to CPython since 3.12, to other 
 ## Quickstart
 
 ```bash
-pip install pygensuggestions==1.2.0 # pip
-uv pip install pygensuggestions==1.2.0 # uv
+pip install pygensuggestions==1.3.0 # pip
+pip install git+https://github.com/jonathandung/pygensuggestions.git # directly from repo
+uv pip install pygensuggestions==1.3.0 # uv
+conda install -c conda-forge pygensuggestions==1.3.0 # conda: method 1
+```
+
+Less common pathways:
+
+```bash
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+conda install pygensuggestions==1.3.0 # conda: method 2
+pipx install pygensuggestions==1.3.0 # pipx
+poetry add pygensuggestions@1.3.0 # poetry
+pdm add pygensuggestions==1.3.0 # pdm
+pipenv install pygensuggestions=1.3.0 # pipenv
 ```
 
 ## Usage
@@ -18,7 +32,7 @@ uv pip install pygensuggestions==1.2.0 # uv
 >>> pygensuggestions.suggest( # the primary function
 ... ('foo', 'bar', 'baz'), # arg 1: the sized iterable over words from which suggestions are taken
 ... 'bar' # arg 2: the wrong word
-... ) # notice that the exact word, if present in the sequence, is never returned
+... ) # notice that the exact word, if present in the sequence, is not returned by default
 'baz'
 >>> pygensuggestions.suggest(['abcd', 'efgh'], 'zyxd') # Returns None, because the target is too far from the candidates\
 ... # No output is produced
@@ -50,7 +64,8 @@ costs is not reached, or there are too many strings in the list.
 ## What does this library do?
 
 This library provides a faithful translation of that sophisticated deterministic engine to pure Python, along with a simple command-line interface to
-call this core function from the shell. It is incredibly simple and custom wrappers should be built upon it for it to really shine.
+call this core function from the shell. It is incredibly simple and custom wrappers should be built upon it for it to really shine. In this context,
+"deterministic" is sensitive to the order in which items appear in the sequence.
 
 It also boasts maximum portability. It supports Python 3.8 and above out-of-the-box, and is implementation-agnostic. It also can take any sized
 iterable of candidates, which can be `str` or `bytes` as long as it is consistent with the type of the target, as opposed to typical implementations
@@ -72,7 +87,7 @@ arguments cannot have `bytes`. Though it is the fastest because it is written in
 
 While the `traceback` module does implement this in pure Python as a fallback, it is again in the form of an unstable, private function, and is
 not available on all versions of Python. Worse still, it is difficult to separate out the logic because the helper function in question is made to
-handle an exception traceback. Predictable; after all, it is the _traceback_ module!
+handle an exception traceback. After all, it is the _traceback_ module!
 
 I have yet to find modules on the Python Package Index providing comparable functionality to this module. It is not to say they are too simple; in
 fact, the algorithms used may be overkill for some, or wrapped in unrelated logic. The routine actually used by CPython, the reference implementation
@@ -81,7 +96,7 @@ of Python, is likely only accessible with such transparency here.
 ## Situations in which `suggest` returns `None`
 
 1. When you pass too many candidates (>750), since this library mirrors the Python source. If you must bypass this, set `lib.MAX_CANDIDATE_ITEMS` to
-   `float('inf')`, suppressing type checker complaints.
-2. When the length of the target string exceeds 40 characters, for the same reason. Set `lib.MAX_STRING_SIZE` to `float('inf')` to alter this
-   behaviour.
+   `float('inf')`, suppressing type checker complaints, or pass `respect_bounds=False`.
+2. When the length of the target string exceeds 40 characters, for the same reason. Set `lib.MAX_STRING_SIZE` to `float('inf')` or pass
+   `respect_bounds=False` to alter this behaviour.
 3. More than one-third of characters require modification for any candidate chosen.

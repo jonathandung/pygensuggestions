@@ -1,11 +1,13 @@
-__all__ = 'MAX_CANDIDATE_ITEMS', 'MAX_STRING_SIZE', 'lev_dist', 'sub_cost', 'suggest'
+'''Functions used by `suggest`, containing the core suggestion logic.'''
+__all__ = 'MAX_CANDIDATE_ITEMS', 'MAX_STRING_SIZE', 'lev_dist', 'sub_cost'
 MAX_STRING_SIZE = 40
-'''The maximum length of the target string, past which the function always returns `None`.'''
+'''The maximum length of the target string, past which the function always returns `None`. Though this is in all caps, signifying a constant,
+that is just because the C implementation we're trying to copy declares this as a macro.'''
 MAX_CANDIDATE_ITEMS = 750
-'''The maximum number of candidate items, past which the function returns `None` indiscriminately.'''
+'''The maximum number of candidate items, past which the function returns `None` indiscriminately. The same remark applies here as for `MAX_STRING_SIZE`.'''
 def lev_dist(s, t, n, /, _=__import__('sys').maxsize): # noqa: B008
     '''Return `n` or the (weighted) Levenshtein distance between `s` and `t`, whichever is smaller.
-    `n` is required as in the C version, and allows early termination.'''
+    `n` is required as in the C version to allow early termination.'''
     i = j = 0
     x = y = None
     for x, y, i in zip(s, t, range(len(s))):
@@ -41,16 +43,4 @@ def sub_cost(s, t, /, a=65, z=90, d=32):
     if a <= s <= z: s += d
     if a <= t <= z: t += d
     return 1 if s == t else 2
-def suggest(o, n, /):
-    '''The main feature of this library: given a list of candidate strings and a target string, return the closest match from the candidates, or `None` if there is no good match.'''
-    b = x = len(n)
-    if len(o) >= MAX_CANDIDATE_ITEMS or x > MAX_STRING_SIZE: return
-    s = None
-    for c in o:
-        if c == n: continue
-        m = min((len(c)+x)//3+1, b-1)
-        d = lev_dist(n, c, m)
-        if d == m: continue
-        if d < b: s, b = c, d
-    return s
-suggest.__text_signature__ = '(candidates, item, /)' # ty: ignore[unresolved-attribute]
+lev_dist.__text_signature__, sub_cost.__text_signature__ = '(s, t, n, /)', '(s, t, /)' # ty: ignore[unresolved-attribute]

@@ -1,12 +1,13 @@
-from pygensuggestions.lib import suggest
+from pygensuggestions import suggest
 def test_basic_suggestion(): assert suggest(['apple', 'apricot', 'banana', 'grape'], 'appple') == 'apple'
 def test_case_insensitive_suggestion(): assert suggest(['Python', 'Java', 'JavaScript', 'Ruby'], 'python') == 'Python'
 def test_empty_candidates(): assert suggest([], 'test') is None
 def test_item_not_in_candidates():
-    candidates = {'cat', 'bat', 'rat', 'mat'}
+    candidates = {'cat', 'bat', 'rat', 'mat', 'hat'}
     result = suggest(candidates, 'hat')
     assert result in candidates
     assert result != 'hat'
+    assert suggest(candidates, 'hat', skip_identical=False) == 'hat'
 def test_max_candidate_items_limit(): assert suggest([f'item_{i}' for i in range(751)], 'test') is None
 def test_string_too_long(): assert suggest(['short', 'medium'], 'x'*41) is None
 def test_multiple_similar_candidates():
@@ -52,10 +53,11 @@ def test_basic_suggestion_bytes(): assert suggest([b'apple', b'apricot', b'banan
 def test_case_insensitive_suggestion_bytes(): assert suggest([b'Python', b'Java', b'JavaScript', b'Ruby'], b'python') == b'Python'
 def test_empty_candidates_bytes(): assert suggest([], b'test') is None
 def test_item_not_in_candidates_bytes():
-    candidates = {b'cat', b'bat', b'rat', b'mat'}
+    candidates = {b'cat', b'bat', b'rat', b'mat', b'hat'}
     result = suggest(candidates, b'hat')
     assert result in candidates
     assert result != b'hat'
+    assert suggest(candidates, b'hat', skip_identical=False) == b'hat'
 def test_max_candidate_items_limit_bytes(): assert suggest(tuple(map(b'item_%d'.__mod__, range(751))), b'test') is None
 def test_string_too_long_bytes(): assert suggest([b'short', b'medium'], b'x'*41) is None
 def test_multiple_similar_candidates_bytes():
