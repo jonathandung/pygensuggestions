@@ -21,4 +21,4 @@ def suggest(candidates, item, /, *, skip_identical=True, respect_bounds=True):
         if d == m: continue # pragma: no branch
         if d < b: s, b = c, d
     return s
-__version__ = '1.3.0'
+__version__ = '2.0.0'
