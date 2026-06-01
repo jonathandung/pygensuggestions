@@ -15,5 +15,6 @@ jobs:
         python-version: "3.9"
         cache-python: true
         activate-environment: true
-    - run: uvx ruff check --output-format=github && uvx ty check --output-format=github
+    - run: uvx ruff check --output-format=github
+    - run: uvx ty check --output-format=github
     - run: COVERAGE_RCFILE=.coveragerc uv run --with ".[test]" pytest -vv

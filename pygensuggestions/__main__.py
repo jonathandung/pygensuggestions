@@ -7,6 +7,7 @@ parser.add_argument('target', help='The incorrect string for which suggestions a
 parser.add_argument('candidates', nargs='*', help='No more than 750 candidate strings to compare against the target.')
 parser.add_argument('-o', '--outfile', help='Write the output to a file instead of stdout.')
 parser.add_argument('-s', '--strict', action='store_true', help='Always exit with status 2 if the target string exceeds 40 characters, or status 3 if there are over 750 candidates, instead of emitting a warning and adapting. To silence the warnings, redirect stderr to null.')
+parser.add_argument('-a', '--allow-identical', action='store_true', help='Allow strings in the candidates list that are the same as the target to be matched.')
 parser.add_argument('-?', '-h', '--help', action='help', help='Print this help message to stdout and exit.')
 parser.add_argument('-v', '--version', action='version', version='pygensuggestions v'+__version__, help='Print the version number to stdout and exit.')
 def main():
@@ -21,7 +22,7 @@ def main():
         if s: parser.exit(3, f'Too many candidate strings ({n} > {i})\n')
         stderr.write(f'Warning: Too many candidate strings ({n} > {i}); adjusting\n')
         lib.MAX_CANDIDATE_ITEMS = n
-    r, o = suggest(a.candidates, a.target), a.outfile
+    r, o = suggest(c, t, skip_identical=not a.allow_identical), a.outfile
     if r is None: parser.exit(1, 'No suitable suggestion found!\n')
     if o is None: print(r)
     else: __import__('pathlib').Path(o).write_text(r)
