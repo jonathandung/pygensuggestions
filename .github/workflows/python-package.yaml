@@ -18,3 +18,4 @@ jobs:
     - run: uvx ruff check --output-format=github
     - run: uvx ty check --output-format=github
     - run: COVERAGE_RCFILE=.coveragerc uv run --with ".[test]" pytest -vv
+    - run: uv run --python pypy@3.11 --with ".[test]" --no-cov

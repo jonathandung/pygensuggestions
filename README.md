@@ -46,11 +46,20 @@ b'blue'
 $ echo "thousand
 > hundred" > moreopts.txt
 $ pygensuggestions tousand million atousend @moreopts.txt --outfile res.out # read candidates from arguments and optionally a newline-delimited file
-$ echo $? # check exit code; no suggestion was generated successfully if equal to 1
+$ echo $? # check exit code
 0
 $ cat res.out # print the result
 thousand
 ```
+
+### Interpretation of exit codes
+
+- 0: a suggestion was successfully found
+- 1: no suggestion was close enough
+- 2: incorrect (combination of) command-line arguments, including if there isn't at least 1 target and 1 candidate (returned by
+  `argparse.ArgumentParser.error`)
+- 3: the target string exceeds 40 characters and `--strict` or `-s` was passed
+- 4: the number of candidates is greater than 750 and `--strict` or `-s` was passed
 
 ## Background
 
@@ -103,4 +112,4 @@ of Python, is likely only accessible with such transparency here.
 
 ## License
 
-[MIT](https://github.com/jonathandung/pygensuggestions/blob/main/LICENSE)
+[MIT](https://github.com/jonathandung/pygensuggestions/blob/main/LICENSE) © 2026 Jonathan Dung
