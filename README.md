@@ -100,3 +100,7 @@ of Python, is likely only accessible with such transparency here.
 2. When the length of the target string exceeds 40 characters, for the same reason. Set `lib.MAX_STRING_SIZE` to `float('inf')` or pass
    `respect_bounds=False` to alter this behaviour.
 3. More than one-third of characters require modification for any candidate chosen.
+
+## License
+
+[MIT](https://github.com/jonathandung/pygensuggestions/blob/main/LICENSE)

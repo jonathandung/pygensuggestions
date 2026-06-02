@@ -18,7 +18,6 @@ def suggest(candidates, item, /, *, skip_identical=True, respect_bounds=True):
             return c
         m = min((len(c)+x)//3+1, b-1)
         d = lib.lev_dist(item, c, m)
-        if d == m: continue # pragma: no branch
-        if d < b: s, b = c, d
+        if m != d < b: s, b = c, d
     return s
 __version__ = '2.0.0'
