@@ -40,4 +40,3 @@ def main(argv=None, _=_):
     return 0
 if __name__ == '__main__': parser.exit(main())
 del a, _
-print(*globals(), sep='\n')

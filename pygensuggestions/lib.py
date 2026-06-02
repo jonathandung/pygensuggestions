@@ -38,8 +38,8 @@ def sub_cost(s, t, /, a=65, z=90, d=32):
     if s == t: return 0
     if isinstance(s, str):
         if isinstance(t, str): return 1 if s.casefold() == t.casefold() else 2
-        raise ValueError # pragma: no cover
-    if not all(map(int.__instancecheck__, (s, t))): raise ValueError # pragma: no branch
+        raise TypeError # pragma: no cover
+    if not (isinstance(s, int) and isinstance(t, int)): raise TypeError # pragma: no branch
     if a <= s <= z: s += d
     if a <= t <= z: t += d
     return 1 if s == t else 2

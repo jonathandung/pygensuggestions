@@ -18,4 +18,4 @@ so on your behalf otherwise.
 ## Notes
 
 Do not abuse your write access to the repository to, for example, create a fake or unprompted release. In this case, your write access will be
-revoked.
+revoked without exception.
