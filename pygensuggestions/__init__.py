@@ -20,4 +20,4 @@ def suggest(candidates, item, /, *, skip_identical=True, respect_bounds=True):
         d = lib.lev_dist(item, c, m)
         if m != d < b: s, b = c, d
     return s
-__version__ = '2.0.0'
+__version__ = '2.1.0'
