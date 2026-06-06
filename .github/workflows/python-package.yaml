@@ -11,12 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@v6.0.2
     - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b
-      with:
-        activate-environment: true
     - run: uvx ruff check --output-format=github
     - run: uvx ty check --output-format=github
-    - run: uv pip install -Ue ".[test]"
-    - run: COVERAGE_RCFILE=.coveragerc uv run --python 3.8 -m pytest -vv
-    - run: COVERAGE_RCFILE=.coveragerc uv run --python 3.15 -m pytest -vv
-    - run: uv run --python pp38 -m pytest -vv --no-cov
-    - run: uv run --python gp310 -m pytest -vv --no-cov
+    - run: COVERAGE_RCFILE=.coveragerc uv run --with ".[test]" --python 3.8 -m pytest -vv
+    - run: COVERAGE_RCFILE=.coveragerc uv run --with ".[test]" --python 3.15 -m pytest -vv
+    - run: uv run --with ".[test]" --python pp38 -m pytest -vv --no-cov
+    - run: uv run --with ".[test]" --python gp310 -m pytest -vv --no-cov
