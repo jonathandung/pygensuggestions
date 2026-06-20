@@ -37,7 +37,6 @@ cover/
 *.po
 *.pot
 *.log
-docs/_build/
 .pybuilder/
 target/
 profile_default/
