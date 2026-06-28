@@ -26,4 +26,5 @@ jobs:
           python-version: 3.14
           cache-python: true
           activate-environment: true
-      - run: uv build && uv publish
+      - run: uv build
+      - run: uv publish

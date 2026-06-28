@@ -17,3 +17,9 @@ jobs:
     - run: uv run --with ".[test]" --python 3.8 -m pytest -vv
     - run: uv run --with ".[test]" --python pp38 -m pytest -vv --no-cov
     - run: uv run --with ".[test]" --python gp311 -m pytest -vv --no-cov
+    - uses: codecov/codecov-action@v7.0.0
+      with:
+        flags: unittests
+        name: codecov-umbrella
+        token: ${{secrets.CODECOV_TOKEN}}
+        verbose: true
