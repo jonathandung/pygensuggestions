@@ -7,22 +7,22 @@ A backport of the `_suggestions` module, native to CPython since 3.12, to other 
 ## Quickstart
 
 ```bash
-uv pip install pygensuggestions==2.2.0 # uv
+uv pip install pygensuggestions==2.3.0 # uv
 uv pip install git+https://github.com/jonathandung/pygensuggestions.git # directly from repo
-pip install pygensuggestions==2.2.0 # pip
+pip install pygensuggestions==2.3.0 # pip
 ```
 
 Less common pathways:
 
 ```bash
-conda install -c conda-forge pygensuggestions==2.2.0 # conda: method 1
+conda install -c conda-forge pygensuggestions==2.3.0 # conda: method 1
 conda config --add channels conda-forge
 conda config --set channel_priority strict
-conda install pygensuggestions==2.2.0 # conda: method 2
-pipx install pygensuggestions==2.2.0 # pipx
-poetry add pygensuggestions@2.2.0 # poetry
-pdm add pygensuggestions==2.2.0 # pdm
-pipenv install pygensuggestions=2.2.0 # pipenv
+conda install pygensuggestions==2.3.0 # conda: method 2
+pipx install pygensuggestions==2.3.0 # pipx
+poetry add pygensuggestions@2.3.0 # poetry
+pdm add pygensuggestions==2.3.0 # pdm
+pipenv install pygensuggestions=2.3.0 # pipenv
 ```
 
 ## Usage
@@ -93,6 +93,9 @@ Indeed, alternatives to this module exist. Their shortfalls are detailed below.
 
 The `_suggestions` module itself is, of course, a contender. However, it only accepts strict instances of `list` for the first argument, and both
 arguments cannot have `bytes`. Though it is the fastest because it is written in C, it is not public and not available on older Python versions.
+
+`difflib` is more potent and configurable, but it serves a different purpose and outputs in a different format. It is not as fast as this for the
+specific purpose we target.
 
 While the `traceback` module does implement this in pure Python as a fallback, it is again in the form of an unstable, private function, and is
 not available on all versions of Python. Worse still, it is difficult to separate out the logic because the helper function in question is made to

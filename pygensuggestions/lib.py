@@ -5,7 +5,7 @@ MAX_STRING_SIZE = 40
 that is just because the C implementation we're trying to copy declares this as a macro.'''
 MAX_CANDIDATE_ITEMS = 750
 '''The maximum number of candidate items, past which the function returns `None` indiscriminately. The same remark applies here as for `MAX_STRING_SIZE`.'''
-def lev_dist(s, t, n, /, _=__import__('sys').maxsize): # noqa: B008
+def lev_dist(s, t, n, /, _=__import__('sys').maxsize): # ruff: ignore[function-call-in-default-argument]
     '''Return `n` or the (weighted) Levenshtein distance between `s` and `t`, whichever is smaller. As in the C version, `n` is required to allow early termination.'''
     i = j = 0
     for x, y, i in zip(s, t, range(len(s))):
@@ -27,7 +27,7 @@ def lev_dist(s, t, n, /, _=__import__('sys').maxsize): # noqa: B008
         d, m = r, _
         for i in range(a):
             g = e[i]
-            e[i] = r = min(d+sub_cost(c, s[i]), min(g, r)+2) # noqa: PLW2901
+            e[i] = r = min(d+sub_cost(c, s[i]), min(g, r)+2) # ruff: ignore[redefined-loop-name]
             d, m = g, min(m, r)
         if m >= n: return n
     return r

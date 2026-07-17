@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "pygensuggestions"
-version = "2.2.0"
+version = "2.3.0"
 authors = [{name = "Jonathan Dung", email = "jonathandung@yahoo.com"}]
 maintainers = [{name = "Jonathan Dung", email = "jonathandung@yahoo.com"}]
 description = "Generate suggestions deterministically based on mistyped input and possible targets."
@@ -19,7 +19,7 @@ Homepage = "https://github.com/jonathandung/pygensuggestions"
 Repository = "https://github.com/jonathandung/pygensuggestions.git"
 Issues = "https://github.com/jonathandung/pygensuggestions/issues"
 Download = "https://pypi.org/project/pygensuggestions/#files"
-"Release Notes" = "https://github.com/jonathandung/pygensuggestions/releases/tag/2.2.0"
+"Release Notes" = "https://github.com/jonathandung/pygensuggestions/releases/tag/2.3.0"
 
 [project.optional-dependencies]
 test = ["pytest==8.3.5", "pytest-cov==5.0.0", "pytest-sugar==1.1.1"]
@@ -43,17 +43,17 @@ target-version = "py38"
 required-version = ">=0.15.15"
 
 [tool.ruff.lint]
-ignore = ["E226", "E227", "E261", "E302", "E305", "E501", "E701", "RET502", "T201", "W292"]
-select = ["A", "ARG", "ANN", "B", "BLE001", "COM819", "C4", "E", "EM103", "ERA001", "EXE", "F", "FIX002", "FLY002", "FURB", "G", "ISC", "LOG", "N", "PERF", "PIE", "PGH004", "PL", "PYI", "RET", "RSE102", "RUF", "Q", "S", "SIM", "SLOT", "T100", "T201", "TRY", "UP", "W", "YTT"]
+ignore = ["missing-whitespace-around-arithmetic-operator", "missing-whitespace-around-bitwise-or-shift-operator", "too-few-spaces-before-inline-comment", "blank-lines-top-level", "blank-lines-after-function-or-class", "line-too-long", "multiple-statements-on-one-line-colon", "implicit-return-value", "print", "missing-newline-at-end-of-file"]
+select = ["A", "ARG", "ANN", "B", "blind-except", "prohibited-trailing-comma", "C4", "E", "dot-format-in-exception", "commented-out-code", "EXE", "F", "line-contains-todo", "static-join-to-f-string", "FURB", "G", "ISC", "LOG", "N", "PERF", "PIE", "blanket-noqa", "PL", "PYI", "RET", "unnecessary-paren-on-raise-exception", "RUF", "Q", "S", "SIM", "SLOT", "debugger", "print", "TRY", "UP", "W", "YTT"]
 preview = true
 typing-extensions = false
 
 [tool.ruff.lint.per-file-ignores]
-"**/*.py" = ["ANN", "FURB180", "PYI"]
-"**/*.pyi" = ["PYI021", "PYI036", "PYI042"]
-"pygensuggestions/__init__.py" = ["RUF067"]
-"pygensuggestions/lib.py" = ["B007"]
-"test.py" = ["S101"]
+"**/*.py" = ["ANN", "meta-class-abc-meta", "PYI"]
+"**/*.pyi" = ["docstring-in-stub", "bad-exit-annotation", "snake-case-type-alias"]
+"pygensuggestions/__init__.py" = ["non-empty-init-module"]
+"pygensuggestions/lib.py" = ["unused-loop-control-variable"]
+"test.py" = ["assert"]
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "single"

@@ -14,8 +14,10 @@
 *~
 .DS_Store
 .Python
+.coverage
 .eggs/
 .env*
+.pytest_cache/
 .python-version
 .ruff_cache/
 .venv/
@@ -26,6 +28,7 @@ build/
 dist/
 eggs/
 env/
+htmlcov/
 pip-delete-this-directory.txt
 sdist/
 venv/

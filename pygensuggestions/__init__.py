@@ -4,7 +4,7 @@
 Do read through the source code if you are curious, but note that the main logic is in `lib.py`.'''
 from pygensuggestions import lib
 __all__ = 'suggest',
-__version__ = '2.2.0'
+__version__ = '2.3.0'
 def suggest(candidates, item, /, *, skip_identical=True, respect_bounds=True):
     '''The main feature of this library. Given a list of candidate strings and a target string, return the closest match from the candidates,
     or `None` if there is no good match.
