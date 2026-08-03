@@ -28,15 +28,23 @@ pipenv install pygensuggestions=2.3.0 # pipenv
 ## Usage
 
 ```pycon
->>> import pygensuggestions # the module
->>> pygensuggestions.suggest( # the primary function
-... ('foo', 'bar', 'baz'), # arg 1: the sized iterable over words from which suggestions are taken
-... 'bar' # arg 2: the wrong word
-... ) # notice that the exact word, if present in the sequence, is not returned by default
+>>> import pygensuggestions  # the module
+>>> pygensuggestions.suggest(  # the primary function
+...     (
+...         'foo',
+...         'bar',
+...         'baz',
+...     ),  # arg 1: the sized iterable over words from which suggestions are taken
+...     'bar',  # arg 2: the wrong word
+... )  # notice that the exact word, if present in the sequence, is not returned by default
 'baz'
->>> pygensuggestions.suggest(['abcd', 'efgh'], 'zyxd') # Returns None, because the target is too far from the candidates\
+>>> pygensuggestions.suggest(
+...     ['abcd', 'efgh'], 'zyxd'
+... )  # Returns None, because the target is too far from the candidates\
 ... # No output is produced
->>> pygensuggestions.suggest({b'red', b'blue', b'yellow'}, b'blew') # all bytes are also OK, as long as data is homogeneous
+>>> pygensuggestions.suggest(
+...     {b'red', b'blue', b'yellow'}, b'blew'
+... )  # all bytes are also OK, as long as data is homogeneous
 b'blue'
 ```
 
