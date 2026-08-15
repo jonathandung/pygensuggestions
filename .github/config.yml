@@ -1,0 +1,6 @@
+newIssueWelcomeComment: >
+  Thanks for opening your first issue here! Be sure to fill out all relevant fields in the issue template!
+newPRWelcomeComment: >
+  Thanks for making this pull request! Please read our [contributing guidelines](https://mvlogics.readthedocs.io/en/stable/contributing.html) carefully.
+firstPRMergeComment: >
+  Congrats on having your first pull request merged, and thank you for improving this project!
