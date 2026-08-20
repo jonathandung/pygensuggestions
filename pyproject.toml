@@ -47,6 +47,7 @@ type-checking-imports = false
 
 [tool.ruff.format]
 quote-style = "single"
+
 [tool.ruff.lint]
 ignore = ["missing-whitespace-around-arithmetic-operator", "missing-whitespace-around-bitwise-or-shift-operator", "too-few-spaces-before-inline-comment", "blank-lines-top-level", "blank-lines-after-function-or-class", "line-too-long", "multiple-statements-on-one-line-colon", "implicit-return-value", "print", "missing-newline-at-end-of-file"]
 select = ["A", "ARG", "ANN", "B", "blind-except", "prohibited-trailing-comma", "C4", "E", "dot-format-in-exception", "commented-out-code", "EXE", "F", "line-contains-todo", "static-join-to-f-string", "FURB", "G", "ISC", "LOG", "N", "PERF", "PIE", "blanket-noqa", "PL", "PYI", "RET", "unnecessary-paren-on-raise-exception", "RUF", "Q", "S", "SIM", "SLOT", "debugger", "print", "TRY", "UP", "W", "YTT"]

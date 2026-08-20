@@ -5,21 +5,32 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6.0.2
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      with:
+        persist-credentials: false
+        ref: ${{github.event.pull_request.head.sha || github.sha}}
     - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
-    - run: uvx ruff check --output-format=github
-    - run: uvx ty check --output-format=github
+      with:
+        enable-cache: false
+    - run: uvx ruff check --output-format github
+    - run: uvx ty check --output-format github
+    - run: uv audit --preview-feature audit-command --ignore GHSA-6w46-j5rx-g56g --ignore PYSEC-2026-1845
     - run: COVERAGE_RCFILE=.coveragerc uv run --with ".[test]" --python 3.15 -m pytest -vv --cov-report xml
     - run: uv run --with ".[test]" --python 3.8 -m pytest -vv
     - run: uv run --with ".[test]" --python pp38 -m pytest -vv --no-cov
-    - run: uv run --with ".[test]" --python gp311 -m pytest -vv --no-cov
-    - uses: codecov/codecov-action@v7.0.0
+    - run: uv run --with ".[test]" --python gp312 -m pytest -vv --no-cov
+    - uses: zizmorcore/zizmor-action@3dc1ecc9bcb9e94e9b2c709687979e1298497054
+    - uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f
       with:
         flags: unittests
         name: codecov-umbrella
         token: ${{secrets.CODECOV_TOKEN}}
         verbose: true
+    - run: uv build
+    timeout-minutes: 5
