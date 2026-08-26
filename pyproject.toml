@@ -32,7 +32,7 @@ packages = ["pygensuggestions"]
 
 [tool.pytest.ini_options]
 testpaths = ["."]
-python_files = "test.py"
+python_files = "test_pygensuggestions.py"
 python_functions = "test_*"
 addopts = ["-v", "--maxfail", "0", "--tb", "short", "--cov", "pygensuggestions", "--cov-report", "term-missing", "--cov-fail-under", "100"]
 minversion = "8.0.0"
@@ -59,7 +59,7 @@ typing-extensions = false
 "**/*.pyi" = ["docstring-in-stub", "bad-exit-annotation", "snake-case-type-alias"]
 "pygensuggestions/__init__.py" = ["non-empty-init-module"]
 "pygensuggestions/lib.py" = ["unused-loop-control-variable"]
-"test.py" = ["assert"]
+"test_pygensuggestions.py" = ["assert"]
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "single"
