@@ -22,7 +22,7 @@ jobs:
         enable-cache: false
     - run: uvx ruff check --output-format github
     - run: uvx ty check --output-format github
-    - run: uv audit --preview-feature audit-command --ignore GHSA-6w46-j5rx-g56g --ignore PYSEC-2026-1845
+    - run: uv audit --preview-feature audit-command
     - run: COVERAGE_RCFILE=.coveragerc uv run --with ".[test]" --python 3.15 -m pytest -vv --cov-report xml
     - run: uv run --with ".[test]" --python 3.8 -m pytest -vv
     - run: uv run --with ".[test]" --python pp38 -m pytest -vv --no-cov
