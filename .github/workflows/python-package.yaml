@@ -24,15 +24,19 @@ jobs:
     - run: uvx ty check --output-format github
     - run: uv audit --preview-feature audit-command
     - run: COVERAGE_RCFILE=.coveragerc uv run --with ".[test]" --python 3.15 -m pytest -vv --cov-report xml
-    - run: uv run --with ".[test]" --python 3.8 -m pytest -vv
-    - run: uv run --with ".[test]" --python pp38 -m pytest -vv --no-cov
-    - run: uv run --with ".[test]" --python gp312 -m pytest -vv --no-cov
+    - run: uv run --with-editable ".[test]" --python 3.8 -m pytest -vv
+    - run: uv run --with-editable ".[test]" --python pp38 -m pytest -vv --no-cov
+    - run: uv run --with-editable ".[test]" --python gp312 -m pytest -vv --no-cov
     - uses: zizmorcore/zizmor-action@3dc1ecc9bcb9e94e9b2c709687979e1298497054
+    - uses: DavidAnson/markdownlint-cli2-action@21c1be1b93ad9ed58fa840aacc3f279cde2a72ff
+      with:
+        globs: |
+          .github/**/*.md
+          *.md
     - uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f
       with:
         flags: unittests
         name: codecov-umbrella
         token: ${{secrets.CODECOV_TOKEN}}
         verbose: true
-    - run: uv build
-    timeout-minutes: 5
+    timeout-minutes: 3

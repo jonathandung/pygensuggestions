@@ -95,7 +95,7 @@ The two functions used to assist in the implementation, `lev_dist` and `sub_cost
 unorthodox procedure derived from the well-known 'edit distance' recipe accounting for case and storing only one row of the traditional 2D dynamic
 programming style array to avoid the memory overhead, albeit slight, particularly valuable.
 
-## Why this module?
+## Why `pygensuggestions`?
 
 Indeed, alternatives to this module exist. Their shortfalls are detailed below.
 
@@ -123,4 +123,4 @@ of Python, is likely only accessible with such transparency here.
 
 ## License
 
-[MIT](https://github.com/jonathandung/pygensuggestions/blob/main/LICENSE) © 2026 Jonathan Dung
+[MIT](https://raw.githubusercontent.com/jonathandung/pygensuggestions/main/LICENSE) © 2026 Jonathan Dung

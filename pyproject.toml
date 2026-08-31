@@ -1,5 +1,5 @@
 [build-system]
-requires = ["uv_build>=0.12.6"]
+requires = ["uv_build>=0.12.7"]
 build-backend = "uv_build"
 
 [project]
@@ -40,7 +40,7 @@ required_plugins = ["pytest-cov==5.0.0", "pytest-sugar==1.1.1"]
 
 [tool.ruff]
 target-version = "py38"
-required-version = ">=0.15.22"
+required-version = ">=0.16.5"
 
 [tool.ruff.analyze]
 type-checking-imports = false
@@ -81,7 +81,7 @@ unused-ignore-comment = "error"
 include = ["pygensuggestions"]
 
 [tool.uv]
-required-version = ">=0.12.6"
+required-version = ">=0.12.7"
 
 [tool.uv.audit]
 ignore = ["GHSA-6w46-j5rx-g56g"]
