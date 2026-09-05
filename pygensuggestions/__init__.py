@@ -1,7 +1,7 @@
 # Copyright © 2026 Jonathan Dung. All rights reserved.
 # SPDX-License-Identifier: MIT
 """Provides a `suggest` function that returns the closest match from a list of candidate strings to a target string under a specific, fine-tuned metric.
-Do read through the source code if you are curious, but note that the main logic is in `lib.py`."""
+Do read through the source code if you are curious, but note that the main logic is in `pygensuggestions/lib.py`."""
 
 from pygensuggestions import lib
 

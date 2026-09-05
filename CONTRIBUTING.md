@@ -2,7 +2,7 @@
 
 If you find fault in the implementation or discrepancy with upstream, feel free to file an issue.
 
-Please note we have a [code of conduct](https://github.com/jonathandung/pygensuggestions/blob/main.CODE_OF_CONDUCT.md), which you should follow in
+Please note we have a [code of conduct](https://github.com/jonathandung/.github/blob/main/CODE_OF_CONDUCT.md), which you should follow in
 all your interactions with the project.
 
 ## Pull Request Process

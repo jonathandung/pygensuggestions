@@ -2,14 +2,16 @@
 
 __all__ = 'MAX_CANDIDATE_ITEMS', 'MAX_STRING_SIZE', 'lev_dist', 'sub_cost'
 MAX_STRING_SIZE = 40
-"""The maximum length of the target string, past which the function always returns `None`. Though this is in all caps, signifying a constant,
-that is just because the C implementation we're trying to copy declares this as a macro."""
+"""The maximum length of the target string, past which the function always returns `None`.
+Though this is in all caps, signifying a constant, that is just because the C implementation we're trying to copy declares this as a macro."""
 MAX_CANDIDATE_ITEMS = 750
-"""The maximum number of candidate items, past which the function returns `None` indiscriminately. The same remark applies here as for `MAX_STRING_SIZE`."""
+"""The maximum number of candidate items, past which the function returns `None` immediately and indiscriminately.
+The same remark applies here as for `MAX_STRING_SIZE`."""
 
 
 def lev_dist(s, t, n, /, _=__import__('sys').maxsize):  # ruff: ignore[function-call-in-default-argument]
-    """Return `n` or the (weighted) Levenshtein distance between `s` and `t`, whichever is smaller. As in the C version, `n` is required to allow early termination."""
+    """Return the minimum of `n` and the (weighted) Levenshtein distance between `s` and `t`.
+    As in the C version, `n` is required to allow early termination."""
     i = j = 0
     for x, y, i in zip(s, t, range(len(s))):
         if x != y:
