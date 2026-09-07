@@ -7,22 +7,22 @@ A backport of the `_suggestions` module, native to CPython since 3.12, to other 
 ## Quickstart
 
 ```bash
-uv pip install pygensuggestions==2.3.0 # uv
+uv pip install pygensuggestions==2.3.1 # uv
 uv pip install git+https://github.com/jonathandung/pygensuggestions.git # directly from repo
-pip install pygensuggestions==2.3.0 # pip
+pip install pygensuggestions==2.3.1 # pip
 ```
 
 Less common pathways:
 
 ```bash
-conda install -c conda-forge pygensuggestions==2.3.0 # conda: method 1
+conda install -c conda-forge pygensuggestions==2.3.1 # conda: method 1
 conda config --add channels conda-forge
 conda config --set channel_priority strict
-conda install pygensuggestions==2.3.0 # conda: method 2
-pipx install pygensuggestions==2.3.0 # pipx
-poetry add pygensuggestions@2.3.0 # poetry
-pdm add pygensuggestions==2.3.0 # pdm
-pipenv install pygensuggestions=2.3.0 # pipenv
+conda install pygensuggestions==2.3.1 # conda: method 2
+pipx install pygensuggestions==2.3.1 # pipx
+poetry add pygensuggestions@2.3.1 # poetry
+pdm add pygensuggestions==2.3.1 # pdm
+pipenv install pygensuggestions=2.3.1 # pipenv
 ```
 
 ## Usage

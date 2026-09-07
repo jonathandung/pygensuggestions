@@ -448,10 +448,10 @@ wheels = [
 
 [[package]]
 name = "pygensuggestions"
-version = "2.3.0"
+version = "2.3.1"
 source = { editable = "." }
 
-[package.optional-dependencies]
+[package.dev-dependencies]
 test = [
     { name = "pytest" },
     { name = "pytest-cov" },
@@ -459,12 +459,13 @@ test = [
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "pytest", marker = "extra == 'test'", specifier = "==8.3.5" },
-    { name = "pytest-cov", marker = "extra == 'test'", specifier = "==5.0.0" },
-    { name = "pytest-sugar", marker = "extra == 'test'", specifier = "==1.1.1" },
+
+[package.metadata.requires-dev]
+test = [
+    { name = "pytest", specifier = "==8.3.5" },
+    { name = "pytest-cov", specifier = "==5.0.0" },
+    { name = "pytest-sugar", specifier = "==1.1.1" },
 ]
-provides-extras = ["test"]
 
 [[package]]
 name = "pytest"

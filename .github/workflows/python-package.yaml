@@ -22,17 +22,20 @@ jobs:
         enable-cache: false
     - run: uvx ruff check --output-format github
     - run: uvx ty check --output-format github
-    - run: uv audit --preview-feature audit-command
-    - run: COVERAGE_RCFILE=.coveragerc uv run --with ".[test]" --python 3.15 -m pytest -vv --cov-report xml
-    - run: uv run --with-editable ".[test]" --python 3.8 -m pytest -vv
-    - run: uv run --with-editable ".[test]" --python pp38 -m pytest -vv --no-cov
-    - run: uv run --with-editable ".[test]" --python gp312 -m pytest -vv --no-cov
-    - uses: zizmorcore/zizmor-action@3dc1ecc9bcb9e94e9b2c709687979e1298497054
     - uses: DavidAnson/markdownlint-cli2-action@21c1be1b93ad9ed58fa840aacc3f279cde2a72ff
       with:
         globs: |
           .github/**/*.md
           *.md
+    - run: uv audit --preview-feature audit-command
+    - uses: zizmorcore/zizmor-action@3dc1ecc9bcb9e94e9b2c709687979e1298497054
+    - uses: jonathandung/check-empty@6b24e2c247289fc39c89708eb1963d7dc10fdd85
+      with:
+        filenames: pygensuggestions/py.typed
+    - run: COVERAGE_RCFILE=.coveragerc uv run --group test --python 3.15 -m pytest -vv --cov-report xml
+    - run: uv run --group test --python 3.8 -m pytest -vv --no-cov
+    - run: uv run --group test --python pp38 -m pytest -vv --no-cov
+    - run: uv run --group test --python gp311 -m pytest -vv --no-cov
     - uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f
       with:
         flags: unittests

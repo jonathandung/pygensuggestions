@@ -6,7 +6,7 @@ Do read through the source code if you are curious, but note that the main logic
 from pygensuggestions import lib
 
 __all__ = ('suggest',)
-__version__ = '2.3.0'
+__version__ = '2.3.1'
 
 
 def suggest(candidates, item, /, *, skip_identical=True, respect_bounds=True):
