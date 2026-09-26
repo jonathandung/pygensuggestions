@@ -29,7 +29,7 @@ jobs:
           *.md
     - run: uv audit --preview-feature audit-command
     - uses: zizmorcore/zizmor-action@cc914d7f3750a2d13d75c7f184a1060aa0e9d482
-    - uses: jonathandung/check-empty@6b24e2c247289fc39c89708eb1963d7dc10fdd85
+    - uses: jonathandung/check-empty@d373d8c25ad1dd21953c3bd09d7f718873081dee
       with:
         filenames: pygensuggestions/py.typed
     - run: COVERAGE_RCFILE=.coveragerc uv run --group test --python 3.15 -m pytest -vv --cov-report xml
