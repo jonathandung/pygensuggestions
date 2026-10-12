@@ -4,7 +4,21 @@ updates:
     package-ecosystem: uv
     schedule: {interval: weekly}
     cooldown: {default-days: 10}
+    groups:
+      major:
+        patterns: [version-update:semver-major]
+      minor:
+        patterns: [version-update:semver-minor]
+      patch:
+        patterns: [version-update:semver-patch]
   - directory: /
     package-ecosystem: github-actions
     schedule: {interval: weekly}
     cooldown: {default-days: 10}
+    groups:
+      major:
+        patterns: [version-update:semver-major]
+      minor:
+        patterns: [version-update:semver-minor]
+      patch:
+        patterns: [version-update:semver-patch]

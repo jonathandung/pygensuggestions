@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+"""The command line entry point."""
+
 import pygensuggestions as _
 
 parser = __import__('argparse').ArgumentParser(
@@ -51,8 +53,9 @@ a(
 
 
 def main(argv=None, _=_):
-    """The main function for the command-line interface. Takes the arguments `argv` (a list of strings without the executable name as the first item),
-    or `sys.argv[1:]` by default, and returns an integer exit code. See the README for the meaning of the exit codes."""
+    """Run the command-line interface. Takes the arguments `argv` (a list of strings without the executable name as the first item),
+    or `sys.argv[1:]` by default, and returns an integer exit code. See the README for the meaning of the exit codes.
+    """
     g = _.lib
     try:
         a = parser.parse_args(argv)

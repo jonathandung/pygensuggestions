@@ -8,7 +8,7 @@ all your interactions with the project.
 ## Pull Request Process
 
 1. If applicable, [update the README](https://github.com/jonathandung/pygensuggestions/edit/main/README.md) with details of changes to the interface,
-including new environment variables and useful file locations, where appropriate.
+including new environment variables and useful file locations where appropriate.
 2. If this PR bumps the version, as previously discussed with an owner or maintainer, increase the version number in the relevant locations. Only
 maintainers are allowed to increment the minor version. The versioning scheme we use is [SemVer](https://semver.org/spec/v2.0.0.html), but we
 currently only have major, minor and patch parts for simplicity.

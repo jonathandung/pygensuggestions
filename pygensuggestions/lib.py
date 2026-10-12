@@ -11,7 +11,8 @@ The same remark applies here as for `MAX_STRING_SIZE`."""
 
 def lev_dist(s, t, n, /, _=__import__('sys').maxsize):  # ruff: ignore[function-call-in-default-argument]
     """Return the minimum of `n` and the (weighted) Levenshtein distance between `s` and `t`.
-    As in the C version, `n` is required to allow early termination."""
+    As in the C version, `n` is required to allow early termination.
+    """
     i = j = 0
     for x, y, i in zip(s, t, range(len(s))):
         if x != y:
@@ -47,7 +48,7 @@ def lev_dist(s, t, n, /, _=__import__('sys').maxsize):  # ruff: ignore[function-
 
 
 def sub_cost(s, t, /, a=65, z=90, d=32):
-    """The cost to substitute `s` for `t`, considering case."""
+    """Return the cost to substitute `s` for `t`, considering case."""
     if s == t:
         return 0
     if isinstance(s, str):

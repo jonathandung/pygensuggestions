@@ -1,3 +1,5 @@
+"""Comprehensive tests for `pygensuggestions`."""
+
 from pygensuggestions import suggest
 
 

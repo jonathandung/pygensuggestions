@@ -1,7 +1,9 @@
-from . import lib  # ruff: ignore[unused-import]
 from collections.abc import Iterable, Sized
-from ty_extensions import Intersection
 from typing import AnyStr, Final
+
+from ty_extensions import Intersection
+
+from . import lib as lib
 
 __all__ = ('suggest',)
 
