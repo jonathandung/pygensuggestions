@@ -15,7 +15,7 @@ jobs:
       with:
         persist-credentials: false
         ref: ${{github.event.pull_request.head.sha || github.sha}}
-    - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7
+    - uses: astral-sh/setup-uv@18d369b23da25a81e9458561248e1aafff6a70fa
       with:
         enable-cache: false
     - run: uvx ruff check --output-format github
