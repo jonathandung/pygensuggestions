@@ -26,7 +26,7 @@ jobs:
           .github/**/*.md
           *.md
     - run: uv audit --preview-feature audit-command
-    - uses: zizmorcore/zizmor-action@85b2b9fb8e3325e7a23d7d0a9d7ba5ae0f999e3e
+    - uses: zizmorcore/zizmor-action@53290badfa369cb0bf7ad16342cb62c2fa47ac7b
     - uses: jonathandung/check-empty@83f176d1255ed31da4bccdcb7a6d834b192914b8
       with:
         filenames: pygensuggestions/py.typed
