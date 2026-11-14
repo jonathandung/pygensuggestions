@@ -64,4 +64,4 @@ def sub_cost(s, t, /, a=65, z=90, d=32):
     return 1 if s == t else 2
 
 
-lev_dist.__text_signature__, sub_cost.__text_signature__ = '(s, t, n, /)', '(s, t, /)'  # ty: ignore[unresolved-attribute]
+lev_dist.__text_signature__, sub_cost.__text_signature__ = '(s, t, n, /)', '(s, t, /)'  # ty: ignore[missing-attribute]

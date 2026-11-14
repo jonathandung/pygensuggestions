@@ -37,7 +37,7 @@ required_plugins = ["pytest-cov==5.0.0", "pytest-sugar==1.1.1"]
 
 [tool.ruff]
 target-version = "py38"
-required-version = ">=0.17.4"
+required-version = ">=0.17.5"
 
 [tool.ruff.analyze]
 type-checking-imports = false
