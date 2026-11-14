@@ -48,7 +48,7 @@ def lev_dist(s, t, n, /, _=__import__('sys').maxsize):  # ruff: ignore[function-
 
 
 def sub_cost(s, t, /, a=65, z=90, d=32):
-    """Return the cost to substitute `s` for `t`, considering case."""
+    """Return the cost to substitute the character `s` for `t` in calculating Levenshtein distance, considering case."""
     if s == t:
         return 0
     if isinstance(s, str):

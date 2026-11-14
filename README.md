@@ -1,5 +1,7 @@
 # [pygensuggestions](https://pypi.org/p/pygensuggestions)
 
+[![#StandWithPalestine](https://raw.githubusercontent.com/TheBSD/StandWithPalestine/main/badges/StandWithPalestine.svg)](https://github.com/TheBSD/StandWithPalestine/blob/main/docs/README.md)
+
 ![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 
 A backport of the `_suggestions` module, native to CPython since 3.12, to other versions
