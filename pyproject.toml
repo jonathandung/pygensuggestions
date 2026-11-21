@@ -7,7 +7,7 @@ test = ["pytest==9.2.0", "pytest-cov==7.1.0", "pytest-sugar==1.1.1"]
 
 [project]
 name = "pygensuggestions"
-version = "2.3.2"
+version = "2.3.3"
 authors = [{name = "Jonathan Dung", email = "jonathandung@yahoo.com"}]
 maintainers = [{name = "Jonathan Dung", email = "jonathandung@yahoo.com"}]
 description = "Generate suggestions deterministically based on mistyped input and possible targets."
@@ -22,7 +22,7 @@ Homepage = "https://github.com/jonathandung/pygensuggestions"
 Repository = "https://github.com/jonathandung/pygensuggestions.git"
 Issues = "https://github.com/jonathandung/pygensuggestions/issues"
 Download = "https://pypi.org/project/pygensuggestions/#files"
-"Release Notes" = "https://github.com/jonathandung/pygensuggestions/releases/tag/2.3.2"
+"Release Notes" = "https://github.com/jonathandung/pygensuggestions/releases/tag/2.3.3"
 
 [project.scripts]
 pygensuggestions = "pygensuggestions.__main__:main"
