@@ -27,8 +27,8 @@ jobs:
       with:
         filenames: pygensuggestions/py.typed
     - run: COVERAGE_RCFILE=.coveragerc uv run --group test --python 3.15 -m pytest -vv --cov-report xml
-    - run: uv run --group test --python 3.8 -m pytest -vv --no-cov
-    - run: uv run --group test --python pp38 -m pytest -vv --no-cov
+    - run: uv run --group test --python 3.10 -m pytest -vv --no-cov
+    - run: uv run --group test --python pp310 -m pytest -vv --no-cov
     - run: uv run --group test --python gp313 -m pytest -vv --no-cov
     - uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5
       with:
