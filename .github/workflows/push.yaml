@@ -23,7 +23,7 @@ jobs:
     - uses: DavidAnson/markdownlint-cli2-action@696eb3f2509270d7b882d2aa68347bc676e7af34
     - run: uv audit
     - uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd
-    - uses: jonathandung/check-empty@83f176d1255ed31da4bccdcb7a6d834b192914b8
+    - uses: jonathandung/check-empty@d6ffde5ee3bd04e90dbc9562d9f6f5cbf18e5dfd
       with:
         filenames: pygensuggestions/py.typed
     - run: uv run --group test --python 3.15 -m pytest -vv --cov-report xml
