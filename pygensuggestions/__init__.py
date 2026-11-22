@@ -12,8 +12,7 @@ __version__ = '2.3.3'
 
 def suggest(z, i, /, *, skip_identical=True, respect_bounds=True):
     """Return the closest match from the candidates given a list of candidate strings and a target string.
-    Pass `skip_identical=False` to allow the function to return the target string if it is present in the candidates, and `respect_bounds=False`
-    to disable the limits on the number of candidate items and the length of the target string (may cause unexpected behaviour).
+    Pass skip_identical=False to allow the function to return the target string if it is present in the candidates, and respect_bounds=False to disable the limits on the number of candidate items and the length of the target string (may cause unexpected behaviour).
     """
     b = x = len(i)
     if respect_bounds and (

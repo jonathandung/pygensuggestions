@@ -1,7 +1,7 @@
 # Contributing
 
-If you find fault in the implementation or discrepancy with upstream, feel free to file
-an issue.
+If you find fault in the implementation or discrepancies with upstream, feel free to
+file an issue report.
 
 Please note we have a
 [code of conduct](https://github.com/jonathandung/.github/blob/main/CODE_OF_CONDUCT.md)
@@ -15,11 +15,9 @@ with details of changes to the interface, including new environment variables an
 file locations where appropriate.
 2. If this PR bumps the version, as previously discussed with an owner or maintainer,
 increase the version number in the relevant locations. Only maintainers are allowed to
-increment the minor version. The versioning scheme we use is
-[SemVer](https://semver.org/spec/v2.0.0.html), but we currently only have major, minor
-and patch parts for simplicity.
-3. Once you have the sign-off of one other developer, you may either merge the PR
-yourself if you have permission, or ask the reviewer to do so on your behalf otherwise.
+increment the minor version. We use [SemVer](https://semver.org/spec/v2.0.0.html).
+3. Once you have the sign-off of another developer, you may either merge the PR
+yourself if you have permission, or ask the reviewer to do so on your behalf.
 
 ## Notes
 
