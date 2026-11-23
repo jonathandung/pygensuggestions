@@ -1,6 +1,3 @@
-newIssueWelcomeComment: >
-  Thanks for opening your first issue here!
-newPRWelcomeComment: >
-  Thanks for making this pull request! Please read our [contributing guidelines](https://github.com/jonathandung/.github/blob/main/CONTRIBUTING.md) carefully.
-firstPRMergeComment: >
-  Congrats on having your first pull request merged, and thank you for improving this project!
+newIssueWelcomeComment: Thanks for opening your first issue here!
+newPRWelcomeComment: Thanks for making this pull request! Please read our [contributing guidelines](https://github.com/jonathandung/.github/blob/main/CONTRIBUTING.md) carefully.
+firstPRMergeComment: Congrats on having your first pull request merged, and thank you for improving this project!

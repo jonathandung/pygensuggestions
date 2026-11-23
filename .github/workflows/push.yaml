@@ -20,9 +20,9 @@ jobs:
         enable-cache: false
     - run: uvx ruff check --output-format github
     - run: uvx ty check --output-format github
-    - uses: DavidAnson/markdownlint-cli2-action@696eb3f2509270d7b882d2aa68347bc676e7af34
     - run: uv audit
     - uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd
+    - uses: DavidAnson/markdownlint-cli2-action@696eb3f2509270d7b882d2aa68347bc676e7af34
     - uses: jonathandung/check-empty@83f176d1255ed31da4bccdcb7a6d834b192914b8
       with:
         filenames: pygensuggestions/py.typed
