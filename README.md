@@ -11,21 +11,13 @@ of Python.
 
 ```bash
 uv pip install pygensuggestions==2.3.3 # uv
-uv pip install git+https://github.com/jonathandung/pygensuggestions.git
-# directly from repo
+uv pip install git+https://github.com/jonathandung/pygensuggestions.git # from repo
 pip install pygensuggestions==2.3.3 # pip
-```
-
-Less common pathways:
-
-```bash
 conda install -c conda-forge pygensuggestions==2.3.3 # conda: method 1
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 conda install pygensuggestions==2.3.3 # conda: method 2
 pipx install pygensuggestions==2.3.3 # pipx
-poetry add pygensuggestions@2.3.3 # poetry
-pdm add pygensuggestions==2.3.3 # pdm
 pipenv install pygensuggestions=2.3.3 # pipenv
 ```
 
